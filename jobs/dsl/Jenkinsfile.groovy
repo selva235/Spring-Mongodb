@@ -1,5 +1,13 @@
 node{
-   stage('gradle build'){
-gradle('clean build')
-	}   
+stage('clone repository'){
+        github {
+            scanCredentialsId('selvagithubcred')
+            repoOwner('selva235')
+            repository('Spring-Mongodb')
+        }
+    }
+
+stage('gradle build'){
+	gradle('clean build')
+   }   
 }
